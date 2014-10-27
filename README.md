@@ -1,8 +1,10 @@
 #integrity-checker
 
 Just a simple utility to recursively check directories of files using md5sum.
-Useful to spot corrupted files and whatsoever. Useful when working with big data and/or proprietary software which screw up everything 
-without saying what happened.
+
+Useful to spot corrupted files and whatsoever. 
+
+Useful when working with big data and/or proprietary software which screw up everything without saying what happened.
 
 
 Inspired by the Steam `Verify integrity of game cache` functionality.
