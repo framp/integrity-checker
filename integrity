@@ -1,0 +1,32 @@
+#!/bin/sh
+
+if [ "$1" == "save" ]
+then
+ find $2 -exec md5sum "{}" \; > $3 2>/dev/null
+ exit
+fi
+
+if [ "$1" == "check" ]
+then
+  tmpfile=$(mktemp)
+  find $2 -exec md5sum "{}" \; > $tmpfile 2>/dev/null
+  diff $tmpfile $3 > /dev/null 2>&1
+  if [ $? -eq 0 ]
+  then
+    echo "The directory files didn't change"
+  elif [ $? -eq 1 ]
+  then
+    echo "The following files changed:"
+    diff $tmpfile $3
+  else
+    echo "Something wrong happened with diff"
+  fi
+  exit
+fi
+
+echo 'Usage: integrity save <directory> <output>'
+echo 'Use integrity save to save the state of a <directory> in a <output> file'
+echo ''
+echo 'Usage: integrity check <directory> <input>'
+echo 'Use integrity check to compare the state of a <directory> with a <output> file previously generated with integrity'
+exit
