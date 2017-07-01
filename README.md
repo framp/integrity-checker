@@ -1,4 +1,4 @@
-#integrity-checker
+# integrity-checker
 
 Just a simple utility to recursively check directories of files using md5sum.
 
@@ -16,5 +16,5 @@ Inspired by the Steam `Verify integrity of game cache` functionality.
     Usage: integrity check <directory> <input>
     Use integrity check to compare the state of a <directory> with a <output> file previously generated with integrity
 
-##Licence
+## Licence
 MIT
